@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+  <title> Cadet Postal System</title>
+  <link rel="stylesheet" type="text/css" href="csl.css" />
+</head>
+
+<header>
+  <h1> Cadet Postal System </h1>
+
+  <div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </div>
+</header>
+
+<body>
+  <br>
+  <h2> Feedback to improve website</h2>
+  <p> If you have an idea to improve the functionality or design of the website please fill out this form and we will
+    try our best to implement the feature.</p>
+  <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+    <label for="firstName">First name:</label>
+    <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z -]{1,50}" required
+      placeholder="First Name"><br><br>
+
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z -]{1,50}" required
+      placeholder="Last Name"><br><br>
+
+    <label for="emailAddress">Email:</label>
+    <input type="email" id="emailAddress" name="emailAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      minlength="1" maxlength="50" required placeholder="Enter a valid email address"><br><br>
+
+    <label for="subject"> Comments:</label>
+    <textarea id="subject" name="subject" pattern="[a-zA-Z .]" required placeholder="Write something..."
+      style="height:100px"></textarea><br><br>
+
+    <input class="submit" type="submit" value="Submit"><br><br>
+  </form>
+
+</html>

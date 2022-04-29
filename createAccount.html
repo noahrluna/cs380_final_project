@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <title> Cadet Postal System </title>
+    <link rel="stylesheet" type="text/css" href="csl.css" />
+</head>
+
+<header>
+    <h1> Cadet Postal System </h1>
+
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+    </div>
+</header>
+
+<body>
+    <br>
+    <h1>Enter the information below to create an account</h1>
+    <form>
+        <br>
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="Last name"><br><br>
+
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="pobox">PO Box #:</label>
+            <input type="text" id="pobox" name="pobox" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="PO Box #"><br><br>
+
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="squadron">Squadron</label>
+            <input type="text" id="squadron" name="sqaudron" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="Squadron"><br><br>
+
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="createemail">Email:</label>
+            <input type="text" id="createemail" name="createemail" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="Email"><br><br>
+
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="createpassword">Password:</label>
+            <input type="text" id="createpassword" name="createpassword" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="Password"><br><br>
+
+        <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+            <label for="createpasswordC">Confirm password:</label>
+            <input type="text" id="createpasswordC" name="createpasswordC" pattern="[a-zA-Z -]{1,50}" required
+                placeholder="Confirm password"><br><br>
+
+        <input class="submit" type="submit" value="Create"><br><br>
+    </form>
+</body>
+
+</html>
