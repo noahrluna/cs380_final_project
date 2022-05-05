@@ -1,1 +1,1 @@
-# cs380-website
+# cs364-website
