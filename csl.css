@@ -1,6 +1,7 @@
+
 html {
   background-size: 100% 100%;
-  background-image: url('usafa.jpg');
+  background-image: url("usafa.jpg");
 }
 
 h1{
@@ -12,7 +13,7 @@ h1{
 
 h2{
   display: table-cell;
-  color: blue;
+  color: white;
   text-align: left;
   background-color: white;
   opacity: 0.5;

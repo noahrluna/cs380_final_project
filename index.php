@@ -1,8 +1,14 @@
+<?php
+    include 'connect_db.php';
+session_start();
+?>
+
 <html lang="en">
 
 <head>
   <title> Cadet Postal System </title>
-  <link rel="stylesheet" type="text/css" href="csl.css" />
+  <link rel="stylesheet" href="csl.css">
+
 </head>
 
 <div class="background">
@@ -15,10 +21,15 @@
     <div class="dropdown">
       <button class="dropbtn">Menu</button>
       <div class="dropdown-content">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="feedback.html">Feedback</a>
+        <a href="index.php">Home</a>
+        <a href="login.php">Login</a>
+        <a href="faqs.php">FAQs</a>
+        <a href="feedback.php">Feedback</a>
+	<?php
+  		if(isset($_SESSION['email'])){?>
+			<a href="signout.php">Sign Out</a>
+	  <?php ;}?>
+
       </div>
       
     </div>
@@ -33,9 +44,10 @@
       started as project for Databases and Applications,
       however after realizing how important the website could be to the cadet wing the project was made into a reality.
       Login or create your account to being accessing the services to check if you have any mail in your PO Box.
-    </p>
-    <p>The following is an EXAMPLE of what checking your mail would look like</p>
-    <a href="checkMail.html">Check Mail</a>
+    </p> <br>
+    <form action="get_mail.php" method="GET">
+	<input class="submit" type="submit" value="Check Mail">
+    </form>
   </body>
 </div>
 

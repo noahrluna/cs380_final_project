@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html lang="en">
 
 <head>
@@ -12,10 +15,15 @@
   <div class="dropdown">
     <button class="dropbtn">Menu</button>
     <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="faqs.html">FAQs</a>
-      <a href="feedback.html">Feedback</a>
+      <a href="index.php">Home</a>
+      <a href="login.php">Login</a>
+      <a href="faqs.php">FAQs</a>
+      <a href="feedback.php">Feedback</a>
+	  <?php
+  		if(isset($_SESSION['email'])){?>
+			<a href="signout.php">Sign Out</a>
+	  <?php ;}?>
+
     </div>
   </div>
 

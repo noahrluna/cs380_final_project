@@ -6,22 +6,22 @@ USE cadet_postal_system;
 
 CREATE TABLE cadet(
     email VARCHAR(60) NOT NULL PRIMARY KEY,
-    boxNumber INTEGER (4) UNIQUE NOT NULL REFERENCES poBox(boxNumber) ON UPDATE CASCADE ON DELETE RESTRICT,
+    boxNumber INTEGER UNIQUE NOT NULL,
     firstName VARCHAR (15) NOT NULL,
     lastName VARCHAR (20) NOT NULL,
-    squadron NUMERIC (2) NOT NULL,
+    squadron INTEGER NOT NULL,
     password VARCHAR (30) NOT NULL
 );
 
 CREATE TABLE poBox(
     email VARCHAR (60) UNIQUE REFERENCES cadet(email) ON UPDATE CASCADE ON DELETE RESTRICT,
-    boxNumber INTEGER (4) UNIQUE NULL PRIMARY KEY,
+    boxNumber INTEGER NOT NULL PRIMARY KEY,
     isEmpty BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE mailParcel(
     binaryBarcode VARCHAR (130) NOT NULL PRIMARY KEY,
-    boxNumber INTEGER (4) NOT NULL REFERENCES poBox(boxNumber) ON UPDATE CASCADE ON DELETE RESTRICT,
+    boxNumber INTEGER NOT NULL REFERENCES poBox(boxNumber) ON UPDATE CASCADE ON DELETE RESTRICT,
     firstName VARCHAR (15),
     lastName VARCHAR (20)
 );
@@ -37,21 +37,21 @@ CREATE TABLE lockerKey(
 
 
 INSERT INTO cadet (email, boxNumber, firstName, lastName, squadron, password) VALUES
-    ('C23Daniel.Simonds@afacademy.af.edu', 2993, 'Daniel', 'Simonds', 29, '5eKUKLaQOiUP2Y'),
-    ('C25colby.tell@afacademy.af.edu', 3048, 'Colby', 'Tell', 29, 'bDQz1pfzVd97Zh'),
+    ('c23Daniel.Simonds@afacademy.af.edu', 2993, 'Daniel', 'Simonds', 29, '5eKUKLaQOiUP2Y'),
+    ('c25colby.tell@afacademy.af.edu', 3048, 'Colby', 'Tell', 29, 'bDQz1pfzVd97Zh'),
     ('c23ethan.deibert@afacademy.af.edu', 1303, 'Ethan', 'Deibert', 29, '5RULVAwGV7o7bB'),
     ('c25benjamin.stewart@afacademy.af.edu', 1297, 'Benjamin', 'Stewart', 29, 'SsPxXOkWbDCOpN'),
-    ('C25Camden.Chiari@afacademy.af.edu', 5756, 'Camden', 'Chiari', 29, 'Go0cHu19M9mBwv'),
+    ('c25Camden.Chiari@afacademy.af.edu', 5756, 'Camden', 'Chiari', 29, 'Go0cHu19M9mBwv'),
     ('c23jessica.quiros@afacademy.af.edu', 3198, 'Jessica', 'Quiros', 29, '2xOjHlD6Yu0XM0'),
-    ('C23micah.center@afacademy.af.edu', 1685, 'Micah', 'Center', 29, 'DzHbXq3AzzFiua'),
+    ('c23micah.center@afacademy.af.edu', 1685, 'Micah', 'Center', 29, 'DzHbXq3AzzFiua'),
     ('c22shelby.turner@afacademy.af.edu', 3883, 'Shelby', 'Turner', 29, '6rauAgJfBtH2gV'),
-    ('C24addison.lutz@afacademy.af.edu', 3335, 'Addison', 'Lutz', 29, 'X3UOvri9CVYoqm'),
+    ('c24addison.lutz@afacademy.af.edu', 3335, 'Addison', 'Lutz', 29, 'X3UOvri9CVYoqm'),
     ('c25samuel.eddy@afacademy.af.edu', 4692, 'Samuel', 'Eddy', 29, 'JqUC3xmmVXvjjq'),
     ('c25aiden.hottle@afacademy.af.edu', 4271, 'Aiden', 'Hottle', 29, 'c5SDz8wdPcrA0S'),
-    ('C24ethan.smith@afacademy.af.edu', 4192, 'Ethan', 'Smith', 29, '0kHzCtsYFaPoj8'),
+    ('c24ethan.smith@afacademy.af.edu', 4192, 'Ethan', 'Smith', 29, '0kHzCtsYFaPoj8'),
     ('c23marc.allerheiligen@afacademy.af.edu', 5793, 'Marc', 'Allerheiligen', 29, 'omPaz5YtOL88Pl'),
-    ('C23luke.arkell@afacademy.af.edu', 4204, 'Luke', 'Arkell', 29, '0iT5rYcj7Ynyq2'),
-    ('C24cole.bitting@afacademy.af.edu', 1028, 'Cole', 'Bitting', 29, 'wKPS5SrXVZNR6W'),
+    ('c23luke.arkell@afacademy.af.edu', 4204, 'Luke', 'Arkell', 29, '0iT5rYcj7Ynyq2'),
+    ('c24cole.bitting@afacademy.af.edu', 1028, 'Cole', 'Bitting', 29, 'wKPS5SrXVZNR6W'),
     ('C25hudson.fahrenholz@afacademy.af.edu', 1708, 'Hudson', 'Fahrenholz', 29, 'X3YHpfXOUbu3w4'),
     ('C24Allison.langenburg@afacademy.af.edu', 2853, 'Allison', 'Langenburg', 29, 'QXn1Yt4NClu1Mc'),
     ('C23hannah.barbour@afacademy.af.edu', 3368, 'Hannah', 'Barbour', 29, 'CM0cIX2IP3znUI'),
@@ -297,3 +297,5 @@ INSERT INTO lockerKey (binaryBarcode, lockerId) VALUES
     ('0110110101111011111011000000111110010101011010000000001010011000101001000000111110011100010001101110000001110000111001010010100110','A023'),
     ('0010111011100011101101101000001111000000110100100111010110000001000111010000000100010000011001001000110001110110100001000100100111','A024'),
     ('0111011111100001010000111101001101001101111111101000100000011101110001011101110000110111001000110101110001111101010111001001110101','A025');
+
+ALTER TABLE cadet ADD FOREIGN KEY (boxNumber) REFERENCES poBox(boxNumber);

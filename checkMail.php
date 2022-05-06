@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <html lang="en">
 
 <head>
@@ -15,10 +18,14 @@
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
             <div class="dropdown-content">
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="faqs.html">FAQs</a>
-                <a href="feedback.html">Feedback</a>
+                <a href="index.php">Home</a>
+                <a href="login.php">Login</a>
+                <a href="faqs.php">FAQs</a>
+                <a href="feedback.php">Feedback</a>
+		<?php
+  		if(isset($_SESSION['email'])){?>
+			<a href="signout.php">Sign Out</a>
+	  	<?php ;}?>
             </div>
         </div>
     </header>
@@ -30,17 +37,14 @@
         <tr>
             <th>Type</th>
             <th># Items</th>
-            <th>Last Delivery Date</th>
         </tr>
         <tr>
             <td>Yellow Slips</td>
-            <td>2</td>
-            <td>06/02/2007</td>
+            <td><?php echo $_SESSION["slips"] ?></td>
         </tr>
         <tr>
-            <td>Locker</td>
-            <td>3</td>
-            <td>06/02/2007</td>
+            <td>Locker Keys</td>
+            <td><?php echo $_SESSION["keys"] ?></td>
         </tr>
     </table>
 

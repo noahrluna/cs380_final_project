@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html lang="en">
 
 <head>
@@ -11,10 +15,14 @@
   <div class="dropdown">
     <button class="dropbtn">Menu</button>
     <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="faqs.html">FAQs</a>
-      <a href="feedback.html">Feedback</a>
+      <a href="index.php">Home</a>
+      <a href="login.php">Login</a>
+      <a href="faqs.php">FAQs</a>
+      <a href="feedback.php">Feedback</a>
+      <?php
+  		if(isset($_SESSION['email'])){?>
+			<a href="signout.php">Sign Out</a>
+	  <?php ;}?>
     </div>
   </div>
 </header>
@@ -24,7 +32,7 @@
   <h2> Feedback to improve website</h2>
   <p> If you have an idea to improve the functionality or design of the website please fill out this form and we will
     try our best to implement the feature.</p>
-  <form action="demo.php" method="POST" onsubmit="return this.checkValidity()">
+  <form action="postal.php" method="POST" onsubmit="return this.checkValidity()">
     <label for="firstName">First name:</label>
     <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z -]{1,50}" required
       placeholder="First Name"><br><br>
